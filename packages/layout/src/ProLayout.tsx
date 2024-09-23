@@ -272,6 +272,8 @@ export type ProLayoutProps = GlobalTypes & {
   siderMenuType?: 'sub' | 'group';
 
   isChildrenLayout?: boolean;
+
+  mobileBreakpoints?: string[]
 };
 
 const headerRender = (
@@ -441,6 +443,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     bgLayoutImgList,
     formatMessage: propsFormatMessage,
     loading,
+    mobileBreakpoints
   } = props || {};
 
   const siderWidth = useMemo(() => {
@@ -577,7 +580,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const colSize = useBreakpoint();
 
   const isMobile = useMemo(() => {
-    return (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
+    if(mobileBreakpoints && mobileBreakpoints.includes(colSize as string))
+      return true
+    return ( colSize === 'xs'  || colSize === 'md'  ) && !props.disableMobile;
   }, [colSize, props.disableMobile]);
 
   // If it is a fix menu, calculate padding
@@ -877,7 +882,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 };
 
-const ProLayout: React.FC<ProLayoutProps> = (props) => {
+const ProLayout: React.FC<ProLayout mobileBreakpoints={['xs', 'md', 'sm', 'lg' ]}Props> = (props) => {
   const { colorPrimary } = props;
 
   const darkProps =
