@@ -582,7 +582,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const isMobile = useMemo(() => {
     if(mobileBreakpoints && mobileBreakpoints.includes(colSize as string))
       return true
-    return ( colSize === 'xs'  || colSize === 'md'  ) && !props.disableMobile;
+    return ( colSize === 'xs'  || colSize === 'sm'  ) && !props.disableMobile;
   }, [colSize, props.disableMobile]);
 
   // If it is a fix menu, calculate padding
@@ -882,7 +882,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 };
 
-const ProLayout: React.FC<ProLayout mobileBreakpoints={['xs', 'md', 'sm', 'lg' ]}Props> = (props) => {
+const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
 
   const darkProps =
