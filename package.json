@@ -2,6 +2,7 @@
   "name": "irri-pro-components",
   "private": true,
   "version": "1.0.0",
+  "repository": "git@github.com:cyber-quest55/irri-pro-components.git",
   "license": "MIT",
   "workspaces": [
     "packages/*"
