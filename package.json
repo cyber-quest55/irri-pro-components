@@ -1,7 +1,7 @@
 {
-  "name": "pro-components",
+  "name": "irri-pro-components",
   "private": true,
-  "repository": "git@github.com:ant-design/pro-components.git",
+  "version":"1.0.0",
   "license": "MIT",
   "workspaces": [
     "packages/*"
